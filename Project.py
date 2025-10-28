@@ -73,8 +73,7 @@ def recognize_with_pca(image_path, recognition_type='text'):
         else:
             config = '--psm 6'
         text = pytesseract.image_to_string(pil_img, config=config)
-        result = text.strip()
-        return result if result else f"Could not recognize {recognition_type}"
+        return text.strip() if text.strip() else f"Could not recognize {recognition_type}"
     except Exception as e:
         return f"Error: {str(e)}"
 
